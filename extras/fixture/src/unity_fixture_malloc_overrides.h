@@ -1,4 +1,4 @@
-/* Copyright (c) 2010 James Grenning and Contributed to Unity Project
+﻿/* Copyright (c) 2010 James Grenning and Contributed to Unity Project
  * ==========================================
  *  Unity Project - A Test Framework for C
  *  Copyright (c) 2007 Mike Karlesky, Mark VanderVoord, Greg Williams
@@ -9,6 +9,11 @@
 #define UNITY_FIXTURE_MALLOC_OVERRIDES_H_
 
 #include <stddef.h>
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
 
 #ifdef UNITY_EXCLUDE_STDLIB_MALLOC
 /* Define this macro to remove the use of stdlib.h, malloc, and free.
@@ -42,5 +47,9 @@ void* unity_malloc(size_t size);
 void* unity_calloc(size_t num, size_t size);
 void* unity_realloc(void * oldMem, size_t size);
 void unity_free(void * mem);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* UNITY_FIXTURE_MALLOC_OVERRIDES_H_ */

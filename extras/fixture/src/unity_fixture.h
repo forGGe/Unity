@@ -1,4 +1,4 @@
-/* Copyright (c) 2010 James Grenning and Contributed to Unity Project
+﻿/* Copyright (c) 2010 James Grenning and Contributed to Unity Project
  * ==========================================
  *  Unity Project - A Test Framework for C
  *  Copyright (c) 2007 Mike Karlesky, Mark VanderVoord, Greg Williams
@@ -12,6 +12,11 @@
 #include "unity_internals.h"
 #include "unity_fixture_malloc_overrides.h"
 #include "unity_fixture_internals.h"
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
 
 int UnityMain(int argc, const char* argv[], void (*runAllTests)(void));
 
@@ -74,5 +79,9 @@ int UnityMain(int argc, const char* argv[], void (*runAllTests)(void));
 #define DOUBLES_EQUAL(expected, actual, delta)         TEST_ASSERT_FLOAT_WITHIN(((expected), (actual), (delta))
 
 void UnityMalloc_MakeMallocFailAfterCount(int count);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* UNITY_FIXTURE_H_ */
